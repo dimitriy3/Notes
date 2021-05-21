@@ -201,7 +201,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 
 class LsApi {
-  name = 'notes';
+  name = 'noteses';
 
   constructor() {
     if (localStorage.getItem(this.name) === null) {
@@ -439,7 +439,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57031" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58300" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
