@@ -1,7 +1,7 @@
 class LsApi {
-  name = 'notes'
   
   constructor() {
+    this.name = 'noteses'
     if (localStorage.getItem(this.name) === null) {
       localStorage.setItem(this.name, '[]')
     }
