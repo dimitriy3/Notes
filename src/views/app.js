@@ -1,0 +1,46 @@
+import { View } from '../core'
+
+class App extends View {
+  getHTML({ notes }) {
+    const notesHTML = notes.map(({ title }) => (`
+      <div class="note"><p class="note_input">${ title }</p></div>
+    `)).join('')
+
+    return (`
+      <div class="container">
+        <div class="navbar">
+          <h1 class="logo">notes</h1>
+          <div class="icons">
+            <i class="nord-icon"></i>
+            <i class="material-icons dark-icon icon">opacity</i>
+            <a target="_blank" href="https://github.com/dimitriy3" class="info icon" aria-label="GitHub">
+              <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="center">
+          <form id="form">
+            <input
+              placeholder="Enter your note"
+              autocomplete="off"
+              class="input"
+            >
+          </form>
+        </div>
+        <hr>
+        <div class="notes">
+          ${ notesHTML }
+        </div>
+        <div class="center">
+          <div class="warn">
+            <i class="material-icons img">note</i>
+            <h1 class="no-notes">You haven't any notes yet</h1>
+          </div>
+          <h3 class="clear">Clear</h3>
+        </div>
+      </div>
+    `)
+  }
+}
+
+export default new App()
