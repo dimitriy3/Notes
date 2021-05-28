@@ -1,14 +1,28 @@
 import { View } from '../core'
 
-class App extends View {
-  getHTML({ notes }) {
-    const notesHTML = notes.map(({ title }) => (`
-      <div class="note"><p class="note_input">${ title }</p></div>
-    `)).join('')
+class NavbarView extends View {
+  constructor() {
+    super()
+    this.selector = 'navbar'
+  }
 
+  components() {
+    return [this]
+  }
+
+  events() {
+    return {
+      '.dark-icon': 'click handleDarkIcon'
+    }
+  }
+
+  handleDarkIcon = () => {
+    this.props.switchTheme()
+  }
+
+  render() {
     return (`
-      <div class="container">
-        <div class="navbar">
+        <div class="${ this.selector }">
           <h1 class="logo">notes</h1>
           <div class="icons">
             <i class="nord-icon"></i>
@@ -18,29 +32,8 @@ class App extends View {
             </a>
           </div>
         </div>
-        <div class="center">
-          <form id="form">
-            <input
-              placeholder="Enter your note"
-              autocomplete="off"
-              class="input"
-            >
-          </form>
-        </div>
-        <hr>
-        <div class="notes">
-          ${ notesHTML }
-        </div>
-        <div class="center">
-          <div class="warn">
-            <i class="material-icons img">note</i>
-            <h1 class="no-notes">You haven't any notes yet</h1>
-          </div>
-          <h3 class="clear">Clear</h3>
-        </div>
-      </div>
     `)
-  }
+  }  
 }
 
-export default new App()
+export default new NavbarView()
